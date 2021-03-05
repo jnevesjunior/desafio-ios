@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2DC5AC4725F1BAEF00A796CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4625F1BAEF00A796CC /* AppDelegate.swift */; };
 		2DC5AC4925F1BAEF00A796CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4825F1BAEF00A796CC /* SceneDelegate.swift */; };
-		2DC5AC4B25F1BAEF00A796CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4A25F1BAEF00A796CC /* ViewController.swift */; };
+		2DC5AC4B25F1BAEF00A796CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4A25F1BAEF00A796CC /* LoginViewController.swift */; };
 		2DC5AC4E25F1BAEF00A796CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4C25F1BAEF00A796CC /* Main.storyboard */; };
 		2DC5AC5125F1BAEF00A796CC /* SampleBankApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4F25F1BAEF00A796CC /* SampleBankApp.xcdatamodeld */; };
 		2DC5AC5325F1BAF100A796CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC5AC5225F1BAF100A796CC /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		2DC5AC4325F1BAEF00A796CC /* SampleBankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleBankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC5AC4625F1BAEF00A796CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DC5AC4825F1BAEF00A796CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2DC5AC4A25F1BAEF00A796CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2DC5AC4A25F1BAEF00A796CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2DC5AC4D25F1BAEF00A796CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DC5AC5025F1BAEF00A796CC /* SampleBankApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleBankApp.xcdatamodel; sourceTree = "<group>"; };
 		2DC5AC5225F1BAF100A796CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,9 +101,9 @@
 		2DC5AC4525F1BAEF00A796CC /* SampleBankApp */ = {
 			isa = PBXGroup;
 			children = (
+				2DC5AC9725F1C04900A796CC /* Login */,
 				2DC5AC4625F1BAEF00A796CC /* AppDelegate.swift */,
 				2DC5AC4825F1BAEF00A796CC /* SceneDelegate.swift */,
-				2DC5AC4A25F1BAEF00A796CC /* ViewController.swift */,
 				2DC5AC4C25F1BAEF00A796CC /* Main.storyboard */,
 				2DC5AC5225F1BAF100A796CC /* Assets.xcassets */,
 				2DC5AC5425F1BAF100A796CC /* LaunchScreen.storyboard */,
@@ -129,6 +129,14 @@
 				2DC5AC6D25F1BAF200A796CC /* Info.plist */,
 			);
 			path = SampleBankAppUITests;
+			sourceTree = "<group>";
+		};
+		2DC5AC9725F1C04900A796CC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2DC5AC4A25F1BAEF00A796CC /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DC5AC4B25F1BAEF00A796CC /* ViewController.swift in Sources */,
+				2DC5AC4B25F1BAEF00A796CC /* LoginViewController.swift in Sources */,
 				2DC5AC5125F1BAEF00A796CC /* SampleBankApp.xcdatamodeld in Sources */,
 				2DC5AC4725F1BAEF00A796CC /* AppDelegate.swift in Sources */,
 				2DC5AC4925F1BAEF00A796CC /* SceneDelegate.swift in Sources */,
