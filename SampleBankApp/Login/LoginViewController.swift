@@ -37,37 +37,70 @@ class LoginViewController: UIViewController {
 
 
         let estimatedFrame = CGRect(x: 0, y: 0, width: 100, height: 55)
-        let textField = MDCOutlinedTextField(frame: estimatedFrame)
-        textField.label.text = "Phone number"
-        textField.sizeToFit()
-        textField.applySBATheme()
+        let phoneTextField = MDCOutlinedTextField(frame: estimatedFrame)
+        phoneTextField.label.text = "Nome ou email"
+        phoneTextField.sizeToFit()
+        phoneTextField.applySBATheme()
         
-        textField.setLeadingIcon(UIImage(named: "Person")!)
+        phoneTextField.setLeadingIcon(UIImage(named: "Person")!)
         
-        self.view.addSubview(textField)
+        self.view.addSubview(phoneTextField)
 
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: textField,
+        phoneTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: phoneTextField,
                            attribute: .leading,
                            relatedBy: .equal,
                            toItem: view,
                            attribute: .leading,
                            multiplier: 1,
                            constant: 20).isActive = true
-        NSLayoutConstraint(item: textField,
+        NSLayoutConstraint(item: phoneTextField,
                            attribute: .trailing,
                            relatedBy: .equal,
                            toItem: view,
                            attribute: .trailing,
                            multiplier: 1,
                            constant: -20).isActive = true
-        NSLayoutConstraint(item: textField,
+        NSLayoutConstraint(item: phoneTextField,
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: view,
                            attribute: .topMargin,
                            multiplier: 1,
                            constant: 200).isActive = true
+        
+        let passTextField = MDCOutlinedTextField(frame: estimatedFrame)
+        passTextField.label.text = "Senha"
+        passTextField.isSecureTextEntry = true
+        passTextField.sizeToFit()
+        passTextField.applySBATheme()
+        
+        passTextField.setLeadingIcon(UIImage(named: "Padlock")!)
+        
+        self.view.addSubview(passTextField)
+
+        passTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: passTextField,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: passTextField,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: -20).isActive = true
+        NSLayoutConstraint(item: passTextField,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: phoneTextField,
+                           attribute: .bottomMargin,
+                           multiplier: 1,
+                           constant: 30).isActive = true
 
 
     }
