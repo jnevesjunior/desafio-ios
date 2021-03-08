@@ -6,7 +6,7 @@ target 'SampleBankApp' do
   use_frameworks!
   
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
-  pod 'MaterialComponents/TextControls+OutlinedTextFieldsTheming'
+  pod 'MaterialComponents/Buttons'
 
   # Pods for SampleBankApp
 

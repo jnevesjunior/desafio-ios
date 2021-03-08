@@ -1,6 +1,26 @@
 PODS:
   - MaterialComponents/AnimationTiming (121.0.1)
   - MaterialComponents/Availability (121.0.1)
+  - MaterialComponents/Buttons (121.0.1):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Elevation (121.0.1):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Ink (121.0.1):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
   - MaterialComponents/private/Application (121.0.1)
   - MaterialComponents/private/Color (121.0.1):
     - MaterialComponents/Availability
@@ -21,22 +41,11 @@ PODS:
   - "MaterialComponents/private/TextControlsPrivate+TextFields (121.0.1)":
     - MaterialComponents/private/Math
     - "MaterialComponents/private/TextControlsPrivate+Shared"
-  - MaterialComponents/schemes/Color (121.0.1):
+  - MaterialComponents/Ripple (121.0.1):
+    - MaterialComponents/AnimationTiming
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
-  - MaterialComponents/schemes/Container (121.0.1):
-    - MaterialComponents/schemes/Color
-    - MaterialComponents/schemes/Shape
-    - MaterialComponents/schemes/Typography
-  - MaterialComponents/schemes/Shape (121.0.1):
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-  - MaterialComponents/schemes/Typography (121.0.1):
-    - "MaterialComponents/schemes/Typography+BasicFontScheme"
-    - "MaterialComponents/schemes/Typography+Scheming"
-    - MaterialComponents/Typography
-  - "MaterialComponents/schemes/Typography+BasicFontScheme (121.0.1)"
-  - "MaterialComponents/schemes/Typography+Scheming (121.0.1)"
+    - MaterialComponents/private/Math
   - MaterialComponents/ShadowElevations (121.0.1)
   - MaterialComponents/ShadowLayer (121.0.1):
     - MaterialComponents/ShadowElevations
@@ -57,9 +66,6 @@ PODS:
     - MaterialComponents/Availability
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
-  - "MaterialComponents/TextControls+OutlinedTextFieldsTheming (121.0.1)":
-    - MaterialComponents/schemes/Container
-    - "MaterialComponents/TextControls+OutlinedTextFields"
   - MaterialComponents/Typography (121.0.1):
     - MaterialComponents/private/Application
     - MaterialComponents/private/Math
@@ -68,8 +74,8 @@ PODS:
   - MDFTextAccessibility (2.0.0)
 
 DEPENDENCIES:
+  - MaterialComponents/Buttons
   - "MaterialComponents/TextControls+OutlinedTextFields"
-  - "MaterialComponents/TextControls+OutlinedTextFieldsTheming"
 
 SPEC REPOS:
   trunk:
@@ -82,6 +88,6 @@ SPEC CHECKSUMS:
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
 
-PODFILE CHECKSUM: a3d832258c1d28e7a2660d27c6f1edfffbe95342
+PODFILE CHECKSUM: 2744a2ad83c8879154628a31af8a3da76959da54
 
 COCOAPODS: 1.10.1

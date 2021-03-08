@@ -18,6 +18,7 @@
 		2DC5AC6C25F1BAF200A796CC /* SampleBankAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC6B25F1BAF200A796CC /* SampleBankAppUITests.swift */; };
 		2DCD592525F1DA9F00870EB6 /* SBATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCD592425F1DA9F00870EB6 /* SBATextField.swift */; };
 		2DE936BA25F6DE8F0033DAED /* SBAColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE936B925F6DE8F0033DAED /* SBAColors.swift */; };
+		2DE936DA25F6ED5C0033DAED /* SBAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE936D925F6ED5C0033DAED /* SBAButton.swift */; };
 		382DA669DF44FCEF2C4CA535 /* Pods_SampleBankApp_SampleBankAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBE81871C71CE3DF95B1C15 /* Pods_SampleBankApp_SampleBankAppUITests.framework */; };
 		4BEEB405FCC634BCA11F3E91 /* Pods_SampleBankAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF79531FFC7AB2D53E176CC7 /* Pods_SampleBankAppTests.framework */; };
 		5F938F92C71D4A4415E1172F /* Pods_SampleBankApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7CE62283CD692C3D0829B8 /* Pods_SampleBankApp.framework */; };
@@ -58,6 +59,7 @@
 		2DC5AC6D25F1BAF200A796CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DCD592425F1DA9F00870EB6 /* SBATextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBATextField.swift; sourceTree = "<group>"; };
 		2DE936B925F6DE8F0033DAED /* SBAColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBAColors.swift; sourceTree = "<group>"; };
+		2DE936D925F6ED5C0033DAED /* SBAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBAButton.swift; sourceTree = "<group>"; };
 		63453893561D5CD18A24507B /* Pods-SampleBankApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleBankApp.release.xcconfig"; path = "Target Support Files/Pods-SampleBankApp/Pods-SampleBankApp.release.xcconfig"; sourceTree = "<group>"; };
 		6A32D731EB97B4230CB58D40 /* Pods-SampleBankAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleBankAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SampleBankAppTests/Pods-SampleBankAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87876CE74F9FF5B061735DFC /* Pods-SampleBankAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleBankAppTests.release.xcconfig"; path = "Target Support Files/Pods-SampleBankAppTests/Pods-SampleBankAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,8 +166,9 @@
 		2DCD592325F1DA7900870EB6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				2DCD592425F1DA9F00870EB6 /* SBATextField.swift */,
 				2DE936B925F6DE8F0033DAED /* SBAColors.swift */,
+				2DCD592425F1DA9F00870EB6 /* SBATextField.swift */,
+				2DE936D925F6ED5C0033DAED /* SBAButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				2DC5AC4B25F1BAEF00A796CC /* LoginViewController.swift in Sources */,
 				2DC5AC5125F1BAEF00A796CC /* SampleBankApp.xcdatamodeld in Sources */,
 				2DCD592525F1DA9F00870EB6 /* SBATextField.swift in Sources */,
+				2DE936DA25F6ED5C0033DAED /* SBAButton.swift in Sources */,
 				2DC5AC4725F1BAEF00A796CC /* AppDelegate.swift in Sources */,
 				2DE936BA25F6DE8F0033DAED /* SBAColors.swift in Sources */,
 				2DC5AC4925F1BAEF00A796CC /* SceneDelegate.swift in Sources */,
