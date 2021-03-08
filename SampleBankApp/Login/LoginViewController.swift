@@ -14,12 +14,13 @@ class LoginViewController: UIViewController {
     var loginTextField: MDCOutlinedTextField?
     var passTextField: MDCOutlinedTextField?
 
+    // MARK: - UIViewController lifecycle
+    
     override func loadView() {
         super.loadView()
 
-        self.view.backgroundColor = UIColor(named: "Primary")
+        self.view.backgroundColor = .sbaPrimary
 
-        
         self.addLogoImg()
 
         self.addLoginTextField()
@@ -30,6 +31,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    // MARK: - Private methods
     
     private func addLogoImg() {
         let logoImageView = UIImageView(image: UIImage(named: "Logo"))

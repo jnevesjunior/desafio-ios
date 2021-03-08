@@ -22,9 +22,8 @@ extension MDCOutlinedTextField {
         self.setNormalLabelColor(.lightGray, for: .normal)
         self.setNormalLabelColor(.lightGray, for: .editing)
         
-        let secondaryColor = UIColor(named: "Secondary")!
-        self.setOutlineColor(secondaryColor, for: .normal)
-        self.setOutlineColor(secondaryColor, for: .editing)
+        self.setOutlineColor(.sbaSecondary, for: .normal)
+        self.setOutlineColor(.sbaSecondary, for: .editing)
     }
     
     func setLeadingIcon(_ icon: UIImage) {
