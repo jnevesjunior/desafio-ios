@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */; };
 		2DC5AC4725F1BAEF00A796CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4625F1BAEF00A796CC /* AppDelegate.swift */; };
 		2DC5AC4925F1BAEF00A796CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4825F1BAEF00A796CC /* SceneDelegate.swift */; };
 		2DC5AC4B25F1BAEF00A796CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AC4A25F1BAEF00A796CC /* LoginViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		2DC5AC4325F1BAEF00A796CC /* SampleBankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleBankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC5AC4625F1BAEF00A796CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DC5AC4825F1BAEF00A796CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DA9A2C425F6F44E00A6D49C /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		2DC5AC3A25F1BAEF00A796CC = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 			children = (
 				2DCD592325F1DA7900870EB6 /* Components */,
 				2DC5AC9725F1C04900A796CC /* Login */,
+				2DA9A2C425F6F44E00A6D49C /* Wallet */,
 				2DC5AC4625F1BAEF00A796CC /* AppDelegate.swift */,
 				2DC5AC4825F1BAEF00A796CC /* SceneDelegate.swift */,
 				2DC5AC4C25F1BAEF00A796CC /* Main.storyboard */,
@@ -439,6 +450,7 @@
 				2DCD592525F1DA9F00870EB6 /* SBATextField.swift in Sources */,
 				2DE936DA25F6ED5C0033DAED /* SBAButton.swift in Sources */,
 				2DC5AC4725F1BAEF00A796CC /* AppDelegate.swift in Sources */,
+				2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */,
 				2DE936BA25F6DE8F0033DAED /* SBAColors.swift in Sources */,
 				2DC5AC4925F1BAEF00A796CC /* SceneDelegate.swift in Sources */,
 			);

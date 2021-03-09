@@ -11,14 +11,14 @@ import MaterialComponents.MaterialButtons
 
 
 class LoginViewController: UIViewController {
-    
+
     var loginTextField: MDCOutlinedTextField?
     var passTextField: MDCOutlinedTextField?
     var loginButton: MDCButton?
     var resetPassButton: UIButton?
 
     // MARK: - UIViewController lifecycle
-    
+
     override func loadView() {
         super.loadView()
 
@@ -27,25 +27,42 @@ class LoginViewController: UIViewController {
         self.addLogoImg()
 
         self.addLoginTextField()
+
         self.addPassTextField()
-        
+
         self.addResetPassButton()
         self.addLoginButton()
-        
+
         self.addDelegates()
+
+        loginButton?.addTarget(self, action: #selector(self.goToWallet), for: .touchUpInside)
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        goToWallet(sender: loginButton)
+//    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
+
+    // MARK: - Actions
+
+    @objc func goToWallet(sender: Any) {
+        let viewController = WalletViewController()
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+
+        self.present(viewController, animated: true, completion: nil)
+    }
+
     // MARK: - Private methods
-    
+
     private func addLogoImg() {
         let logoImageView = UIImageView(image: UIImage(named: "Logo"))
         self.view.addSubview(logoImageView)
@@ -66,16 +83,16 @@ class LoginViewController: UIViewController {
                            multiplier: 1,
                            constant: 50).isActive = true
     }
-    
+
     private func addLoginTextField() {
         let estimatedFrame = CGRect(x: 0, y: 0, width: 100, height: 55)
         let textField = MDCOutlinedTextField(frame: estimatedFrame)
         textField.label.text = "Nome ou email"
         textField.sizeToFit()
         textField.applySBATheme()
-        
+
         textField.setLeadingIcon(UIImage(named: "Person")!)
-        
+
         self.view.addSubview(textField)
 
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -100,11 +117,11 @@ class LoginViewController: UIViewController {
                            attribute: .topMargin,
                            multiplier: 1,
                            constant: 200).isActive = true
-        
+
         loginTextField = textField
         loginTextField?.resignFirstResponder()
     }
-    
+
     private func addPassTextField() {
         let estimatedFrame = CGRect(x: 0, y: 0, width: 100, height: 55)
         let textField = MDCOutlinedTextField(frame: estimatedFrame)
@@ -112,9 +129,9 @@ class LoginViewController: UIViewController {
         textField.isSecureTextEntry = true
         textField.sizeToFit()
         textField.applySBATheme()
-        
+
         textField.setLeadingIcon(UIImage(named: "Padlock")!)
-        
+
         self.view.addSubview(textField)
 
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -139,10 +156,10 @@ class LoginViewController: UIViewController {
                            attribute: .bottomMargin,
                            multiplier: 1,
                            constant: 30).isActive = true
-        
+
         passTextField = textField
     }
-    
+
     private func addLoginButton() {
         let button = MDCButton()
         button.minimumSize = CGSize(width: 100, height: 55)
@@ -150,7 +167,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Acessar minha conta", for: .normal)
 
         self.view.addSubview(button)
-        
+
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: button,
                            attribute: .leading,
@@ -173,17 +190,17 @@ class LoginViewController: UIViewController {
                            attribute: .topMargin,
                            multiplier: 1,
                            constant: -30).isActive = true
-        
+
         self.loginButton = button
     }
-    
+
     private func addResetPassButton() {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         button.setTitle("Esqueci minha senha", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .thin)
 
         self.view.addSubview(button)
-        
+
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: button,
                            attribute: .leading,
@@ -206,10 +223,10 @@ class LoginViewController: UIViewController {
                            attribute: .bottomMargin,
                            multiplier: 1,
                            constant: -20).isActive = true
-        
+
         self.resetPassButton = button
     }
-    
+
     private func addDelegates() {
         self.loginTextField?.delegate = self
         self.passTextField?.delegate = self
