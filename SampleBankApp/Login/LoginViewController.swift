@@ -31,11 +31,17 @@ class LoginViewController: UIViewController {
         
         self.addResetPassButton()
         self.addLoginButton()
+        
+        self.addDelegates()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - Private methods
@@ -96,6 +102,7 @@ class LoginViewController: UIViewController {
                            constant: 200).isActive = true
         
         loginTextField = textField
+        loginTextField?.resignFirstResponder()
     }
     
     private func addPassTextField() {
@@ -202,6 +209,18 @@ class LoginViewController: UIViewController {
         
         self.resetPassButton = button
     }
+    
+    private func addDelegates() {
+        self.loginTextField?.delegate = self
+        self.passTextField?.delegate = self
+    }
 
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
