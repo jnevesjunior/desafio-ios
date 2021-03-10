@@ -13,6 +13,9 @@ class WalletViewController: UIViewController {
     var iconImageView: UIImageView?
     var titleLabel: UILabel?
     var infoLabel: UILabel?
+    
+    var containerView: UIView?
+    var entriesTableView: UITableView?
 
     // MARK: - UIViewController lifecycle
 
@@ -173,11 +176,11 @@ class WalletViewController: UIViewController {
         self.infoLabel = label
     }
     
+    // To do: Maybe this container is unnecessary
     private func addContainerView() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         view.backgroundColor = .systemBackground
         view.layer.cornerRadius = 15
-        
         
         self.view.addSubview(view)
 
@@ -190,21 +193,78 @@ class WalletViewController: UIViewController {
                            multiplier: 1,
                            constant: 0).isActive = true
         NSLayoutConstraint(item: view,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: self.view,
-                           attribute: .height,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        NSLayoutConstraint(item: view,
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: self.infoLabel,
                            attribute: .bottomMargin,
                            multiplier: 1,
                            constant: 35).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 16).isActive = true
         
+        self.containerView = view
+        self.addEntriesTableView()
+    }
+    
+    private func addEntriesTableView() {
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        tableView.layer.cornerRadius = 15
+        tableView.separatorStyle = .none
         
+        self.view.addSubview(tableView)
+
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: tableView,
+                           attribute: .width,
+                           relatedBy: .equal,
+                           toItem: self.containerView,
+                           attribute: .width,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        NSLayoutConstraint(item: tableView,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.containerView,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        NSLayoutConstraint(item: tableView,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: self.containerView,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 16).isActive = true
         
+        self.entriesTableView = tableView
+        
+        self.entriesTableView?.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.reuseIdentifier)
+        self.entriesTableView?.delegate = self
+        self.entriesTableView?.dataSource = self
+    }
+}
+
+extension WalletViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return EntryTableViewCell.estimatedHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return EntryTableViewCell.estimatedHeight
+    }
+}
+
+extension WalletViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return EntryTableViewCell.dequeueReusableCell(tableView: tableView)
     }
 }
