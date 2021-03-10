@@ -12,6 +12,12 @@ class EntryDetailsViewController: UIViewController {
 
     var detailsStackView: UIStackView?
 
+    var transactionView: TransactionView?
+    var buyerNameView: BuyerNameView?
+    var buyerEmailView: BuyerEmailView?
+    var transactionDateView: TransactionDateView?
+    var transactionStatusView: TransactionStatusView?
+
     // MARK: - UIViewController lifecycle
 
     override func loadView() {
@@ -26,7 +32,7 @@ class EntryDetailsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.showTransaction()
         self.showBuyerName()
         self.showBuyerEmail()
@@ -87,44 +93,64 @@ class EntryDetailsViewController: UIViewController {
         self.detailsStackView = stackView
 
     }
-    
+
     private func showTransaction() {
-        let view = TransactionView()
-        view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
+        if self.transactionView == nil {
+            let view = TransactionView()
+            view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
 
-        self.detailsStackView?.addArrangedSubview(view)
+            self.detailsStackView?.addArrangedSubview(view)
+
+            self.transactionView = view
+        }
     }
-    
+
     private func showBuyerName() {
-        let view = BuyerNameView()
-        view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
+        if self.buyerNameView == nil {
+            let view = BuyerNameView()
+            view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
 
-        self.detailsStackView?.addArrangedSubview(view)
+            self.detailsStackView?.addArrangedSubview(view)
+
+            self.buyerNameView = view
+        }
     }
-    
+
     private func showBuyerEmail() {
-        let view = BuyerEmailView()
-        view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
+        if self.buyerEmailView == nil {
+            let view = BuyerEmailView()
+            view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
 
-        self.detailsStackView?.addArrangedSubview(view)
+            self.detailsStackView?.addArrangedSubview(view)
+
+            self.buyerEmailView = view
+        }
     }
-    
+
     private func showTransactionDate() {
-        let view = TransactionDateView()
-        view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
+        if self.transactionDateView == nil {
+            let view = TransactionDateView()
+            view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
 
-        self.detailsStackView?.addArrangedSubview(view)
+            self.detailsStackView?.addArrangedSubview(view)
+
+            self.transactionDateView = view
+        }
     }
-    
-    private func showTransactionStatus() {
-        let view = TransactionStatusView()
-        view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
 
-        self.detailsStackView?.addArrangedSubview(view)
+    private func showTransactionStatus() {
+        if self.transactionStatusView == nil {
+            let view = TransactionStatusView()
+            view.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
+
+            self.detailsStackView?.addArrangedSubview(view)
+
+            self.transactionStatusView = view
+        }
     }
 }
