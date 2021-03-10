@@ -257,6 +257,12 @@ extension WalletViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return EntryTableViewCell.estimatedHeight
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let viewController = EntryDetailsViewController()
+
+            self.present(viewController, animated: true, completion: nil)
+    }
 }
 
 extension WalletViewController: UITableViewDataSource {
