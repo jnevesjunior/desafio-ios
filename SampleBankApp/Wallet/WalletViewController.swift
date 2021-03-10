@@ -13,7 +13,7 @@ class WalletViewController: UIViewController {
     var iconImageView: UIImageView?
     var titleLabel: UILabel?
     var infoLabel: UILabel?
-    
+
     var containerView: UIView?
     var entriesTableView: UITableView?
 
@@ -28,22 +28,22 @@ class WalletViewController: UIViewController {
         self.addWelcomeLabel()
         self.addTitleLabel()
         self.addInfoLabel()
-        
+
         self.addContainerView()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         setNeedsStatusBarAppearanceUpdate()
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
+            .lightContent
     }
 
     // MARK: - Private methods
@@ -124,7 +124,7 @@ class WalletViewController: UIViewController {
                            multiplier: 1,
                            constant: 20).isActive = true
     }
-    
+
     private func addTitleLabel() {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 60))
         label.text = "Pedidos"
@@ -148,10 +148,10 @@ class WalletViewController: UIViewController {
                            attribute: .leadingMargin,
                            multiplier: 1,
                            constant: 0).isActive = true
-        
+
         self.titleLabel = label
     }
-    
+
     private func addInfoLabel() {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 60))
         label.text = "xxx pedidos, totalizando R$"
@@ -182,16 +182,16 @@ class WalletViewController: UIViewController {
                            attribute: .trailingMargin,
                            multiplier: 1,
                            constant: 0).isActive = true
-        
+
         self.infoLabel = label
     }
-    
+
     // To do: Maybe this container is unnecessary
     private func addContainerView() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         view.backgroundColor = .systemBackground
         view.layer.cornerRadius = 15
-        
+
         self.view.addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -216,16 +216,16 @@ class WalletViewController: UIViewController {
                            attribute: .bottom,
                            multiplier: 1,
                            constant: 16).isActive = true
-        
+
         self.containerView = view
         self.addEntriesTableView()
     }
-    
+
     private func addEntriesTableView() {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         tableView.layer.cornerRadius = 15
         tableView.separatorStyle = .none
-        
+
         self.view.addSubview(tableView)
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -250,9 +250,9 @@ class WalletViewController: UIViewController {
                            attribute: .bottom,
                            multiplier: 1,
                            constant: 16).isActive = true
-        
+
         self.entriesTableView = tableView
-        
+
         self.entriesTableView?.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.reuseIdentifier)
         self.entriesTableView?.delegate = self
         self.entriesTableView?.dataSource = self
@@ -263,15 +263,15 @@ extension WalletViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return EntryTableViewCell.estimatedHeight
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return EntryTableViewCell.estimatedHeight
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let viewController = EntryDetailsViewController()
 
-            self.present(viewController, animated: true, completion: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = EntryDetailsViewController()
+
+        self.present(viewController, animated: true, completion: nil)
     }
 }
 
@@ -279,7 +279,7 @@ extension WalletViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return EntryTableViewCell.dequeueReusableCell(tableView: tableView)
     }

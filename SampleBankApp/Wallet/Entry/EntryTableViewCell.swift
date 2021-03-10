@@ -24,6 +24,7 @@ class EntryTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        self.selectionStyle = .none
         self.addIconImageView()
 
         self.addValueLabel()
