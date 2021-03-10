@@ -18,6 +18,12 @@ class EntryDetailsViewController: UIViewController {
     var transactionDateView: TransactionDateView?
     var transactionStatusView: TransactionStatusView?
 
+    var financialLabel: UILabel?
+    
+    var totalValueView: UIView?
+    var taxValueView: UIView?
+    var finalValueView: UIView?
+
     // MARK: - UIViewController lifecycle
 
     override func loadView() {
@@ -28,16 +34,28 @@ class EntryDetailsViewController: UIViewController {
         self.addBackButton()
 
         self.addDetailsContainer()
+
+        self.addFinancialLabel()
+        
+        self.addTotalValueView()
+        self.addTaxValueView()
+        self.addFinalValueView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setNeedsStatusBarAppearanceUpdate()
 
         self.showTransaction()
         self.showBuyerName()
         self.showBuyerEmail()
         self.showTransactionDate()
         self.showTransactionStatus()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
 
     private func addBackButton() {
@@ -92,6 +110,164 @@ class EntryDetailsViewController: UIViewController {
 
         self.detailsStackView = stackView
 
+    }
+
+    private func addFinancialLabel() {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+        label.text = "Resumo financeiro"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .lightGray
+
+        self.view.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: label,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.detailsStackView,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .height,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 24).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: -24).isActive = true
+
+        self.financialLabel = label
+    }
+    
+    private func addTotalValueView() {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        view.backgroundColor = .black
+        
+        self.view.addSubview(view)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: view,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .height,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.financialLabel,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 30).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 24).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: -24).isActive = true
+        
+        self.totalValueView = view
+    }
+    
+    private func addTaxValueView() {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        view.backgroundColor = .red
+        
+        self.view.addSubview(view)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: view,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .height,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.totalValueView,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 24).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: -24).isActive = true
+        
+        self.taxValueView = view
+    }
+    
+    private func addFinalValueView() {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        view.backgroundColor = .sbaTertiary
+        
+        self.view.addSubview(view)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: view,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .height,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.taxValueView,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 24).isActive = true
+        NSLayoutConstraint(item: view,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: -24).isActive = true
+        
+        self.finalValueView = view
     }
 
     private func showTransaction() {

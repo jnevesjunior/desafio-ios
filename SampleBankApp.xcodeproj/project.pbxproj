@@ -115,6 +115,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D80114F25F9326C009B7B7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2DBC540225F8553C00690C78 /* BuyerEmailView.swift */,
+				2DBC53F725F8537A00690C78 /* BuyerNameView.swift */,
+				2DBC540A25F855E400690C78 /* TransactionDateView.swift */,
+				2DBC540F25F856B700690C78 /* TransactionStatusView.swift */,
+				2DBC53F225F8514800690C78 /* TransactionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2DA9A2C425F6F44E00A6D49C /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,12 +148,8 @@
 		2DBC53F125F8511F00690C78 /* EntryDetails */ = {
 			isa = PBXGroup;
 			children = (
-				2DBC540225F8553C00690C78 /* BuyerEmailView.swift */,
-				2DBC53F725F8537A00690C78 /* BuyerNameView.swift */,
+				2D80114F25F9326C009B7B7D /* Views */,
 				2DBC53E925F8452800690C78 /* EntryDetailsViewController.swift */,
-				2DBC540A25F855E400690C78 /* TransactionDateView.swift */,
-				2DBC540F25F856B700690C78 /* TransactionStatusView.swift */,
-				2DBC53F225F8514800690C78 /* TransactionView.swift */,
 			);
 			path = EntryDetails;
 			sourceTree = "<group>";
