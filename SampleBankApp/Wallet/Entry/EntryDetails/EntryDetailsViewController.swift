@@ -19,7 +19,7 @@ class EntryDetailsViewController: UIViewController {
     var transactionStatusView: TransactionStatusView?
 
     var financialLabel: UILabel?
-    
+
     var totalValueView: UIView?
     var taxValueView: UIView?
     var finalValueView: UIView?
@@ -36,15 +36,17 @@ class EntryDetailsViewController: UIViewController {
         self.addDetailsContainer()
 
         self.addFinancialLabel()
-        
+
         self.addTotalValueView()
         self.addTaxValueView()
         self.addFinalValueView()
+
+        self.addHashView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         setNeedsStatusBarAppearanceUpdate()
 
         self.showTransaction()
@@ -53,9 +55,9 @@ class EntryDetailsViewController: UIViewController {
         self.showTransactionDate()
         self.showTransactionStatus()
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
+            .lightContent
     }
 
     private func addBackButton() {
@@ -109,7 +111,6 @@ class EntryDetailsViewController: UIViewController {
                            constant: 50).isActive = true
 
         self.detailsStackView = stackView
-
     }
 
     private func addFinancialLabel() {
@@ -152,11 +153,11 @@ class EntryDetailsViewController: UIViewController {
 
         self.financialLabel = label
     }
-    
+
     private func addTotalValueView() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         view.backgroundColor = .black
-        
+
         self.view.addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -188,14 +189,14 @@ class EntryDetailsViewController: UIViewController {
                            attribute: .trailing,
                            multiplier: 1,
                            constant: -24).isActive = true
-        
+
         self.totalValueView = view
     }
-    
+
     private func addTaxValueView() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         view.backgroundColor = .red
-        
+
         self.view.addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -227,14 +228,14 @@ class EntryDetailsViewController: UIViewController {
                            attribute: .trailing,
                            multiplier: 1,
                            constant: -24).isActive = true
-        
+
         self.taxValueView = view
     }
-    
+
     private func addFinalValueView() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         view.backgroundColor = .sbaTertiary
-        
+
         self.view.addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -266,8 +267,77 @@ class EntryDetailsViewController: UIViewController {
                            attribute: .trailing,
                            multiplier: 1,
                            constant: -24).isActive = true
-        
+
         self.finalValueView = view
+    }
+
+    private func addHashView() {
+        let stackView = UIView()
+        stackView.backgroundColor = .systemBackground
+
+        self.view.addSubview(stackView)
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: stackView,
+                           attribute: .width,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .width,
+                           multiplier: 1,
+                           constant: 0).isActive = true
+        NSLayoutConstraint(item: stackView,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.finalValueView,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+
+
+        let label = UILabel()
+        label.text = "sandbox:"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .lightGray
+        label.numberOfLines = 3
+
+        self.view.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: label,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .height,
+                           multiplier: 1,
+                           constant: 24).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 24).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self.view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: -24).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: stackView,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: 24).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: stackView,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: -24).isActive = true
     }
 
     private func showTransaction() {
