@@ -155,8 +155,10 @@ class EntryDetailsViewController: UIViewController {
     }
 
     private func addTotalValueView() {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
-        view.backgroundColor = .black
+        let view = DetailLineView(label: "Valor total",
+                                  currency: "R$",
+                                  value: 0.0,
+                                  color: .black)
 
         self.view.addSubview(view)
 
@@ -167,7 +169,7 @@ class EntryDetailsViewController: UIViewController {
                            toItem: nil,
                            attribute: .height,
                            multiplier: 1,
-                           constant: 20).isActive = true
+                           constant: 25).isActive = true
         NSLayoutConstraint(item: view,
                            attribute: .top,
                            relatedBy: .equal,
@@ -194,8 +196,10 @@ class EntryDetailsViewController: UIViewController {
     }
 
     private func addTaxValueView() {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
-        view.backgroundColor = .red
+        let view = DetailLineView(label: "Taxas",
+                                  currency: "R$",
+                                  value: 0.0,
+                                  color: .red)
 
         self.view.addSubview(view)
 
@@ -206,7 +210,7 @@ class EntryDetailsViewController: UIViewController {
                            toItem: nil,
                            attribute: .height,
                            multiplier: 1,
-                           constant: 20).isActive = true
+                           constant: 25).isActive = true
         NSLayoutConstraint(item: view,
                            attribute: .top,
                            relatedBy: .equal,
@@ -233,8 +237,13 @@ class EntryDetailsViewController: UIViewController {
     }
 
     private func addFinalValueView() {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
-        view.backgroundColor = .sbaTertiary
+        let view = DetailLineView(label: "Meu recebimento",
+                                  currency: "R$",
+                                  value: 0.0,
+                                  color: .sbaTertiary)
+        view.labelLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        view.currencyLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        view.valueLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
 
         self.view.addSubview(view)
 
@@ -245,7 +254,7 @@ class EntryDetailsViewController: UIViewController {
                            toItem: nil,
                            attribute: .height,
                            multiplier: 1,
-                           constant: 20).isActive = true
+                           constant: 25).isActive = true
         NSLayoutConstraint(item: view,
                            attribute: .top,
                            relatedBy: .equal,

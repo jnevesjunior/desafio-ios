@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D80115425F9799E009B7B7D /* DetailLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D80115325F9799E009B7B7D /* DetailLineView.swift */; };
 		2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */; };
 		2DBC53E525F8398900690C78 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBC53E425F8398900690C78 /* EntryTableViewCell.swift */; };
 		2DBC53EA25F8452800690C78 /* EntryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBC53E925F8452800690C78 /* EntryDetailsViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D80115325F9799E009B7B7D /* DetailLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLineView.swift; sourceTree = "<group>"; };
 		2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		2DBC53E425F8398900690C78 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		2DBC53E925F8452800690C78 /* EntryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		2D80114F25F9326C009B7B7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2D80115325F9799E009B7B7D /* DetailLineView.swift */,
 				2DBC540225F8553C00690C78 /* BuyerEmailView.swift */,
 				2DBC53F725F8537A00690C78 /* BuyerNameView.swift */,
 				2DBC540A25F855E400690C78 /* TransactionDateView.swift */,
@@ -495,6 +498,7 @@
 				2DCD592525F1DA9F00870EB6 /* SBATextField.swift in Sources */,
 				2DE936DA25F6ED5C0033DAED /* SBAButton.swift in Sources */,
 				2DBC540325F8553C00690C78 /* BuyerEmailView.swift in Sources */,
+				2D80115425F9799E009B7B7D /* DetailLineView.swift in Sources */,
 				2DBC53F825F8537A00690C78 /* BuyerNameView.swift in Sources */,
 				2DC5AC4725F1BAEF00A796CC /* AppDelegate.swift in Sources */,
 				2DBC53F325F8514800690C78 /* TransactionView.swift in Sources */,
