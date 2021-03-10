@@ -16,6 +16,9 @@ extension UIColor {
     // light #273947 dark #273947
     class var sbaSecondary: UIColor { UIColor(named: "Secondary")! }
     
+    // light #56AFBB dark #56AFBB
+    class var sbaTertiary: UIColor { UIColor(named: "Tertiary")! }
+    
     // light #C11951 dark #C11951
     class var sbaAccent: UIColor { UIColor(named: "Accent")! }
     

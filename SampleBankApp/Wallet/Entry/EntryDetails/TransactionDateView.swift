@@ -31,7 +31,8 @@ class TransactionDateView: UIView {
     }
 
     private func addIconImageView() {
-        let imageView = UIImageView(image: UIImage(named: "WalletIcon"))
+        let imageView = UIImageView(image: UIImage(named: "Calendar"))
+        imageView.tintColor = .sbaTertiary
 
         self.addSubview(imageView)
 
@@ -42,28 +43,28 @@ class TransactionDateView: UIView {
                            toItem: nil,
                            attribute: .width,
                            multiplier: 1,
-                           constant: 40).isActive = true
+                           constant: 20).isActive = true
         NSLayoutConstraint(item: imageView,
                            attribute: .height,
                            relatedBy: .equal,
                            toItem: nil,
                            attribute: .height,
                            multiplier: 1,
-                           constant: 40).isActive = true
+                           constant: 20).isActive = true
         NSLayoutConstraint(item: imageView,
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: self,
                            attribute: .top,
                            multiplier: 1,
-                           constant: 15).isActive = true
+                           constant: 25).isActive = true
         NSLayoutConstraint(item: imageView,
                            attribute: .leading,
                            relatedBy: .equal,
                            toItem: self,
                            attribute: .leading,
                            multiplier: 1,
-                           constant: 15).isActive = true
+                           constant: 25).isActive = true
 
         self.iconImageView = imageView
     }
@@ -90,7 +91,7 @@ class TransactionDateView: UIView {
                            toItem: self.iconImageView,
                            attribute: .trailing,
                            multiplier: 1,
-                           constant: 16).isActive = true
+                           constant: 26).isActive = true
 
         self.titleLabel = label
     }
@@ -117,7 +118,7 @@ class TransactionDateView: UIView {
                            toItem: self.iconImageView,
                            attribute: .trailing,
                            multiplier: 1,
-                           constant: 16).isActive = true
+                           constant: 26).isActive = true
 
         self.dateLabel = label
     }
