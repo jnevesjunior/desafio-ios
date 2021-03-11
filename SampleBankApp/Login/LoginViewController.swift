@@ -8,14 +8,20 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MaterialComponents.MaterialButtons
+import NVActivityIndicatorView
 
 
 class LoginViewController: UIViewController {
 
     var loginTextField: MDCOutlinedTextField?
     var passTextField: MDCOutlinedTextField?
+    var errorLabel: UILabel?
     var loginButton: MDCButton?
     var resetPassButton: UIButton?
+
+    var activityIndicatorView: NVActivityIndicatorView!
+
+    var presenter: LoginPresenter?
 
     // MARK: - UIViewController lifecycle
 
@@ -27,30 +33,42 @@ class LoginViewController: UIViewController {
         self.addLogoImg()
 
         self.addLoginTextField()
-
         self.addPassTextField()
+
+        self.addErrorLabel()
 
         self.addResetPassButton()
         self.addLoginButton()
 
         self.addDelegates()
 
-        loginButton?.addTarget(self, action: #selector(self.goToWallet), for: .touchUpInside)
+        self.presenter = LoginPresenter.defaultPresenter()
+        self.presenter?.delegate = self
 
+        loginButton?.addTarget(self, action: #selector(self.loginButtonAction), for: .touchUpInside)
+
+        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: (self.view.frame.width / 2) - 25,
+                                                                           y: (self.view.frame.height / 2) - 25,
+                                                                           width: 50,
+                                                                           height: 50),
+                                                             type: .ballPulse,
+                                                             color: NVActivityIndicatorView.DEFAULT_COLOR,
+                                                             padding: NVActivityIndicatorView.DEFAULT_PADDING)
+        self.view.addSubview(self.activityIndicatorView)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         setNeedsStatusBarAppearanceUpdate()
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
+            .lightContent
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -59,12 +77,11 @@ class LoginViewController: UIViewController {
 
     // MARK: - Actions
 
-    @objc func goToWallet(sender: Any) {
-        let viewController = WalletViewController()
-        viewController.modalPresentationStyle = .fullScreen
-        viewController.modalTransitionStyle = .crossDissolve
+    @objc func loginButtonAction(sender: Any) {
+        let login = loginTextField?.text ?? ""
+        let pass = passTextField?.text ?? ""
 
-        self.present(viewController, animated: true, completion: nil)
+        presenter?.delegateWantsToLogin(login: login, pass: pass)
     }
 
     // MARK: - Private methods
@@ -94,6 +111,7 @@ class LoginViewController: UIViewController {
         let estimatedFrame = CGRect(x: 0, y: 0, width: 100, height: 55)
         let textField = MDCOutlinedTextField(frame: estimatedFrame)
         textField.label.text = "Nome ou email"
+        textField.autocapitalizationType = .none
         textField.sizeToFit()
         textField.applySBATheme()
 
@@ -132,6 +150,7 @@ class LoginViewController: UIViewController {
         let estimatedFrame = CGRect(x: 0, y: 0, width: 100, height: 55)
         let textField = MDCOutlinedTextField(frame: estimatedFrame)
         textField.label.text = "Senha"
+        textField.autocapitalizationType = .none
         textField.isSecureTextEntry = true
         textField.sizeToFit()
         textField.applySBATheme()
@@ -163,7 +182,50 @@ class LoginViewController: UIViewController {
                            multiplier: 1,
                            constant: 30).isActive = true
 
-        passTextField = textField
+        self.passTextField = textField
+    }
+
+    private func addErrorLabel() {
+        let label = UILabel()
+        label.text = "Usuário ou senha inválidos"
+        label.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        label.textColor = .sbaAccent
+        label.textAlignment = .center
+        label.isHidden = true
+
+        self.view.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: label,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .height,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: 20).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .trailing,
+                           multiplier: 1,
+                           constant: -20).isActive = true
+        NSLayoutConstraint(item: label,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.passTextField!,
+                           attribute: .bottom,
+                           multiplier: 1,
+                           constant: 16).isActive = true
+
+        self.errorLabel = label
     }
 
     private func addLoginButton() {
@@ -238,6 +300,14 @@ class LoginViewController: UIViewController {
         self.passTextField?.delegate = self
     }
 
+    private func goToWallet() {
+        let viewController = WalletViewController()
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+
+        self.present(viewController, animated: true, completion: nil)
+    }
+
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -247,3 +317,30 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
+extension LoginViewController: LoginPresenterDelegate {
+
+    func showLoading(_ isLoading: Bool) {
+        if isLoading {
+            activityIndicatorView.startAnimating()
+        } else {
+            activityIndicatorView.stopAnimating()
+        }
+    }
+
+    func showErrorMessage() {
+        let alert = UIAlertController(title: "Ops...",
+                                      message: "Ocorreu um erro no login, por favor tente novamente!",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func showLoginError(_ isError: Bool) {
+        self.errorLabel?.isHidden = !isError
+    }
+    
+    func loginSuccess() {
+        goToWallet()
+    }
+}

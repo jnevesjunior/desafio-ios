@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D2CF2B825F98B7D00FBDBEF /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2B725F98B7C00FBDBEF /* LoginPresenter.swift */; };
+		2D2CF2C125F9953600FBDBEF /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2C025F9953600FBDBEF /* APIManager.swift */; };
+		2D2CF2DC25F9987800FBDBEF /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */; };
 		2D80115425F9799E009B7B7D /* DetailLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D80115325F9799E009B7B7D /* DetailLineView.swift */; };
 		2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */; };
 		2DBC53E525F8398900690C78 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBC53E425F8398900690C78 /* EntryTableViewCell.swift */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D2CF2B725F98B7C00FBDBEF /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		2D2CF2C025F9953600FBDBEF /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		2D80115325F9799E009B7B7D /* DetailLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLineView.swift; sourceTree = "<group>"; };
 		2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		2DBC53E425F8398900690C78 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +123,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D2CF2BF25F9952000FBDBEF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2D2CF2DA25F9986A00FBDBEF /* Routers */,
+				2D2CF2C025F9953600FBDBEF /* APIManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2D2CF2DA25F9986A00FBDBEF /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
 		2D80114F25F9326C009B7B7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +205,7 @@
 		2DC5AC4525F1BAEF00A796CC /* SampleBankApp */ = {
 			isa = PBXGroup;
 			children = (
+				2D2CF2BF25F9952000FBDBEF /* Managers */,
 				2DCD592325F1DA7900870EB6 /* Components */,
 				2DC5AC9725F1C04900A796CC /* Login */,
 				2DA9A2C425F6F44E00A6D49C /* Wallet */,
@@ -218,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				2DC5AC4A25F1BAEF00A796CC /* LoginViewController.swift */,
+				2D2CF2B725F98B7C00FBDBEF /* LoginPresenter.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -504,7 +529,10 @@
 				2DBC53F325F8514800690C78 /* TransactionView.swift in Sources */,
 				2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */,
 				2DBC53E525F8398900690C78 /* EntryTableViewCell.swift in Sources */,
+				2D2CF2B825F98B7D00FBDBEF /* LoginPresenter.swift in Sources */,
+				2D2CF2C125F9953600FBDBEF /* APIManager.swift in Sources */,
 				2DE936BA25F6DE8F0033DAED /* SBAColors.swift in Sources */,
+				2D2CF2DC25F9987800FBDBEF /* LoginRouter.swift in Sources */,
 				2DBC540B25F855E400690C78 /* TransactionDateView.swift in Sources */,
 				2DBC53EA25F8452800690C78 /* EntryDetailsViewController.swift in Sources */,
 				2DC5AC4925F1BAEF00A796CC /* SceneDelegate.swift in Sources */,

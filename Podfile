@@ -7,6 +7,10 @@ target 'SampleBankApp' do
   
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
   pod 'MaterialComponents/Buttons'
+  
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'NVActivityIndicatorView'
 
   # Pods for SampleBankApp
 

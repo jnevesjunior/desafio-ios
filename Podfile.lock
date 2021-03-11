@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.1)
   - MaterialComponents/AnimationTiming (121.0.1)
   - MaterialComponents/Availability (121.0.1)
   - MaterialComponents/Buttons (121.0.1):
@@ -72,22 +73,35 @@ PODS:
     - MDFTextAccessibility
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - MaterialComponents/Buttons
   - "MaterialComponents/TextControls+OutlinedTextFields"
+  - NVActivityIndicatorView
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
+    - NVActivityIndicatorView
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   MaterialComponents: afb3574c87696721741006fbb428d26c7565fc0f
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 2744a2ad83c8879154628a31af8a3da76959da54
+PODFILE CHECKSUM: 212f4f33d54c60ffe7b18f45b4f5cac323a30369
 
 COCOAPODS: 1.10.1
