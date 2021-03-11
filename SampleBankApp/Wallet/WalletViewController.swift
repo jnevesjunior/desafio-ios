@@ -10,12 +10,16 @@ import UIKit
 
 class WalletViewController: UIViewController {
 
+    var userNameLabel: UILabel?
+    
     var iconImageView: UIImageView?
     var titleLabel: UILabel?
     var infoLabel: UILabel?
 
     var containerView: UIView?
     var entriesTableView: UITableView?
+    
+    var presenter: WalletPresenter?
 
     // MARK: - UIViewController lifecycle
 
@@ -30,6 +34,9 @@ class WalletViewController: UIViewController {
         self.addInfoLabel()
 
         self.addContainerView()
+        
+        self.presenter = WalletPresenter.defaultPresenter()
+        self.presenter?.delegate = self
     }
 
     override func viewDidLoad() {
@@ -40,6 +47,8 @@ class WalletViewController: UIViewController {
         super.viewWillAppear(animated)
 
         setNeedsStatusBarAppearanceUpdate()
+        
+        self.presenter?.delegateWillAppear()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -87,7 +96,7 @@ class WalletViewController: UIViewController {
 
     private func addWelcomeLabel() {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 60))
-        label.text = "Olá, Qwerty"
+        label.text = "Olá"
         label.font = UIFont.systemFont(ofSize: 15)
         label.textAlignment = .right
         label.textColor = .white
@@ -123,6 +132,8 @@ class WalletViewController: UIViewController {
                            attribute: .trailingMargin,
                            multiplier: 1,
                            constant: 20).isActive = true
+        
+        self.userNameLabel = label
     }
 
     private func addTitleLabel() {
@@ -154,7 +165,7 @@ class WalletViewController: UIViewController {
 
     private func addInfoLabel() {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 60))
-        label.text = "xxx pedidos, totalizando R$"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.textColor = .lightGray
 
@@ -282,5 +293,18 @@ extension WalletViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return EntryTableViewCell.dequeueReusableCell(tableView: tableView)
+    }
+}
+
+extension WalletViewController: WalletPresenterDelegate {
+    func showUserData(name: String?, entries: Int?, value: Float?) {
+        if name != nil {
+            self.userNameLabel?.text = "Olá, \(name!)"
+        }
+        
+        if entries != nil && value != nil {
+            let amount = String(format: "R$ %.02f", value!)
+            self.infoLabel?.text = "\(entries!) pedidos, totalizando \(amount)"
+        }
     }
 }

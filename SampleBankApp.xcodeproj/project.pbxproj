@@ -10,6 +10,8 @@
 		2D2CF2B825F98B7D00FBDBEF /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2B725F98B7C00FBDBEF /* LoginPresenter.swift */; };
 		2D2CF2C125F9953600FBDBEF /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2C025F9953600FBDBEF /* APIManager.swift */; };
 		2D2CF2DC25F9987800FBDBEF /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */; };
+		2D2CF2ED25F9A2D300FBDBEF /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2EC25F9A2D300FBDBEF /* UserRouter.swift */; };
+		2D2CF2F225F9A3D500FBDBEF /* WalletPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2F125F9A3D500FBDBEF /* WalletPresenter.swift */; };
 		2D80115425F9799E009B7B7D /* DetailLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D80115325F9799E009B7B7D /* DetailLineView.swift */; };
 		2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */; };
 		2DBC53E525F8398900690C78 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBC53E425F8398900690C78 /* EntryTableViewCell.swift */; };
@@ -57,6 +59,8 @@
 		2D2CF2B725F98B7C00FBDBEF /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		2D2CF2C025F9953600FBDBEF /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		2D2CF2EC25F9A2D300FBDBEF /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		2D2CF2F125F9A3D500FBDBEF /* WalletPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPresenter.swift; sourceTree = "<group>"; };
 		2D80115325F9799E009B7B7D /* DetailLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLineView.swift; sourceTree = "<group>"; };
 		2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		2DBC53E425F8398900690C78 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */,
+				2D2CF2EC25F9A2D300FBDBEF /* UserRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			children = (
 				2DBC53E325F8395B00690C78 /* Entry */,
 				2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */,
+				2D2CF2F125F9A3D500FBDBEF /* WalletPresenter.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 				2DBC53F325F8514800690C78 /* TransactionView.swift in Sources */,
 				2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */,
 				2DBC53E525F8398900690C78 /* EntryTableViewCell.swift in Sources */,
+				2D2CF2F225F9A3D500FBDBEF /* WalletPresenter.swift in Sources */,
 				2D2CF2B825F98B7D00FBDBEF /* LoginPresenter.swift in Sources */,
 				2D2CF2C125F9953600FBDBEF /* APIManager.swift in Sources */,
 				2DE936BA25F6DE8F0033DAED /* SBAColors.swift in Sources */,
@@ -537,6 +544,7 @@
 				2DBC53EA25F8452800690C78 /* EntryDetailsViewController.swift in Sources */,
 				2DC5AC4925F1BAEF00A796CC /* SceneDelegate.swift in Sources */,
 				2DBC541025F856B700690C78 /* TransactionStatusView.swift in Sources */,
+				2D2CF2ED25F9A2D300FBDBEF /* UserRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
