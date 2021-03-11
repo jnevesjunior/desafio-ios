@@ -105,6 +105,13 @@ class LoginViewController: UIViewController {
                            attribute: .topMargin,
                            multiplier: 1,
                            constant: 50).isActive = true
+        NSLayoutConstraint(item: logoImageView,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .height,
+                           multiplier: 1,
+                           constant: 120).isActive = true
     }
 
     private func addLoginTextField() {
