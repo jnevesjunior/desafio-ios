@@ -12,7 +12,6 @@
 		2D2CF2DC25F9987800FBDBEF /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */; };
 		2D2CF2ED25F9A2D300FBDBEF /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2EC25F9A2D300FBDBEF /* UserRouter.swift */; };
 		2D2CF2F225F9A3D500FBDBEF /* WalletPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2F125F9A3D500FBDBEF /* WalletPresenter.swift */; };
-		2D2CF2F725F9ADF100FBDBEF /* EntryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF2F625F9ADF100FBDBEF /* EntryDetailRouter.swift */; };
 		2D2CF30225F9AE8700FBDBEF /* EntryDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CF30125F9AE8700FBDBEF /* EntryDetailsPresenter.swift */; };
 		2D80115425F9799E009B7B7D /* DetailLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D80115325F9799E009B7B7D /* DetailLineView.swift */; };
 		2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */; };
@@ -37,6 +36,7 @@
 		2DE936BA25F6DE8F0033DAED /* SBAColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE936B925F6DE8F0033DAED /* SBAColors.swift */; };
 		2DE936DA25F6ED5C0033DAED /* SBAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE936D925F6ED5C0033DAED /* SBAButton.swift */; };
 		2DFED12025FB054400069E44 /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFED11F25FB054400069E44 /* LoginPresenterTests.swift */; };
+		2DFED12E25FBB67500069E44 /* EntryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFED12D25FBB67500069E44 /* EntryDetailRouter.swift */; };
 		382DA669DF44FCEF2C4CA535 /* Pods_SampleBankApp_SampleBankAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBE81871C71CE3DF95B1C15 /* Pods_SampleBankApp_SampleBankAppUITests.framework */; };
 		4BEEB405FCC634BCA11F3E91 /* Pods_SampleBankAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF79531FFC7AB2D53E176CC7 /* Pods_SampleBankAppTests.framework */; };
 		5F938F92C71D4A4415E1172F /* Pods_SampleBankApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7CE62283CD692C3D0829B8 /* Pods_SampleBankApp.framework */; };
@@ -65,7 +65,6 @@
 		2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		2D2CF2EC25F9A2D300FBDBEF /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		2D2CF2F125F9A3D500FBDBEF /* WalletPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPresenter.swift; sourceTree = "<group>"; };
-		2D2CF2F625F9ADF100FBDBEF /* EntryDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntryDetailRouter.swift; path = ../../../../../EntryDetailRouter.swift; sourceTree = "<group>"; };
 		2D2CF30125F9AE8700FBDBEF /* EntryDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsPresenter.swift; sourceTree = "<group>"; };
 		2D80115325F9799E009B7B7D /* DetailLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLineView.swift; sourceTree = "<group>"; };
 		2DA9A2C525F6F47500A6D49C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		2DE936B925F6DE8F0033DAED /* SBAColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBAColors.swift; sourceTree = "<group>"; };
 		2DE936D925F6ED5C0033DAED /* SBAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBAButton.swift; sourceTree = "<group>"; };
 		2DFED11F25FB054400069E44 /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
+		2DFED12D25FBB67500069E44 /* EntryDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailRouter.swift; sourceTree = "<group>"; };
 		63453893561D5CD18A24507B /* Pods-SampleBankApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleBankApp.release.xcconfig"; path = "Target Support Files/Pods-SampleBankApp/Pods-SampleBankApp.release.xcconfig"; sourceTree = "<group>"; };
 		6A32D731EB97B4230CB58D40 /* Pods-SampleBankAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleBankAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SampleBankAppTests/Pods-SampleBankAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87876CE74F9FF5B061735DFC /* Pods-SampleBankAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleBankAppTests.release.xcconfig"; path = "Target Support Files/Pods-SampleBankAppTests/Pods-SampleBankAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				2DD21ED625FAED190084B776 /* EntriesRouter.swift */,
-				2D2CF2F625F9ADF100FBDBEF /* EntryDetailRouter.swift */,
+				2DFED12D25FBB67500069E44 /* EntryDetailRouter.swift */,
 				2D2CF2EC25F9A2D300FBDBEF /* UserRouter.swift */,
 				2D2CF2DB25F9987800FBDBEF /* LoginRouter.swift */,
 			);
@@ -552,9 +552,9 @@
 				2DBC540325F8553C00690C78 /* BuyerEmailView.swift in Sources */,
 				2D80115425F9799E009B7B7D /* DetailLineView.swift in Sources */,
 				2DBC53F825F8537A00690C78 /* BuyerNameView.swift in Sources */,
+				2DFED12E25FBB67500069E44 /* EntryDetailRouter.swift in Sources */,
 				2DC5AC4725F1BAEF00A796CC /* AppDelegate.swift in Sources */,
 				2DBC53F325F8514800690C78 /* TransactionView.swift in Sources */,
-				2D2CF2F725F9ADF100FBDBEF /* EntryDetailRouter.swift in Sources */,
 				2DA9A2C625F6F47500A6D49C /* WalletViewController.swift in Sources */,
 				2D2CF30225F9AE8700FBDBEF /* EntryDetailsPresenter.swift in Sources */,
 				2DBC53E525F8398900690C78 /* EntryTableViewCell.swift in Sources */,
