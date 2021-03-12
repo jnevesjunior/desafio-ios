@@ -100,7 +100,7 @@ class TransactionDateView: UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 60))
         label.text = "01/01/2021"
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .black
+        label.textColor = .label
 
         self.addSubview(label)
 

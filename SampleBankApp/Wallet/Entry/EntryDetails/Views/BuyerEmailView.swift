@@ -100,7 +100,7 @@ class BuyerEmailView: UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 60))
         label.text = "example@example.com"
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .black
+        label.textColor = .label
 
         self.addSubview(label)
 

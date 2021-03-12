@@ -72,7 +72,7 @@ class TransactionView: UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         label.text = "R$00,00"
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        label.textColor = .black
+        label.textColor = .label
 
         self.addSubview(label)
         
