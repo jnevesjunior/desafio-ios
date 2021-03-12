@@ -20,9 +20,13 @@ class EntryDetailsViewController: UIViewController {
 
     var financialLabel: UILabel?
 
-    var totalValueView: UIView?
-    var taxValueView: UIView?
-    var finalValueView: UIView?
+    var totalValueView: DetailLineView?
+    var taxValueView: DetailLineView?
+    var finalValueView: DetailLineView?
+    
+    var transactionHashLabel: UILabel?
+
+    var presenter: EntryDetailsPresenter?
 
     // MARK: - UIViewController lifecycle
 
@@ -42,18 +46,17 @@ class EntryDetailsViewController: UIViewController {
         self.addFinalValueView()
 
         self.addHashView()
+
+        self.presenter = EntryDetailsPresenter.defaultPresenter()
+        self.presenter?.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         setNeedsStatusBarAppearanceUpdate()
-
-        self.showTransaction()
-        self.showBuyerName()
-        self.showBuyerEmail()
-        self.showTransactionDate()
-        self.showTransactionStatus()
+        
+        self.presenter?.delegateWillAppear()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -281,20 +284,20 @@ class EntryDetailsViewController: UIViewController {
     }
 
     private func addHashView() {
-        let stackView = UIView()
-        stackView.backgroundColor = .systemBackground
+        let view = UIView()
+        view.backgroundColor = .systemBackground
 
-        self.view.addSubview(stackView)
+        self.view.addSubview(view)
 
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: stackView,
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: view,
                            attribute: .width,
                            relatedBy: .equal,
                            toItem: self.view,
                            attribute: .width,
                            multiplier: 1,
                            constant: 0).isActive = true
-        NSLayoutConstraint(item: stackView,
+        NSLayoutConstraint(item: view,
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: self.finalValueView,
@@ -336,17 +339,19 @@ class EntryDetailsViewController: UIViewController {
         NSLayoutConstraint(item: label,
                            attribute: .top,
                            relatedBy: .equal,
-                           toItem: stackView,
+                           toItem: view,
                            attribute: .top,
                            multiplier: 1,
                            constant: 24).isActive = true
         NSLayoutConstraint(item: label,
                            attribute: .bottom,
                            relatedBy: .equal,
-                           toItem: stackView,
+                           toItem: view,
                            attribute: .bottom,
                            multiplier: 1,
                            constant: -24).isActive = true
+        
+        self.transactionHashLabel = label
     }
 
     private func showTransaction() {
@@ -407,5 +412,49 @@ class EntryDetailsViewController: UIViewController {
 
             self.transactionStatusView = view
         }
+    }
+}
+
+extension EntryDetailsViewController: EntryDetailsPresenterDelegate {
+    
+    func setAmount(_ amount: Float) {
+        self.showTransaction()
+        self.transactionView?.valueLabel?.text = String(format: "%.02f", amount)
+    }
+    
+    func setName(_ name: String) {
+        self.showBuyerName()
+        self.buyerNameView?.nameLabel?.text = name
+    }
+    
+    func setEmail(_ email: String) {
+        self.showBuyerEmail()
+        self.buyerEmailView?.emailLabel?.text = email
+    }
+    
+    func setDate(_ date: String) {
+        self.showTransactionDate()
+        self.transactionDateView?.dateLabel?.text = date
+    }
+    
+    func setStatus(_ status: Bool) {
+        self.showTransactionStatus()
+        self.transactionStatusView?.setStatus(status)
+    }
+    
+    func setTotalAmount(_ amount: Float) {
+        self.totalValueView?.valueLabel.text = String(format: "%.02f", amount)
+    }
+    
+    func setTax(_ tax: Float) {
+        self.taxValueView?.valueLabel.text = String(format: "%.02f", tax)
+    }
+    
+    func setFinalAmount(_ amount: Float) {
+        self.finalValueView?.valueLabel.text = String(format: "%.02f", amount)
+    }
+    
+    func setTransactionHash(_ hash: String) {
+        self.transactionHashLabel?.text = "sandbox: \(hash)"
     }
 }
