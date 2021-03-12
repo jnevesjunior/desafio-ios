@@ -10,12 +10,15 @@ import Foundation
 
 protocol WalletPresenterDelegate {
     func showUserData(name: String?, entries: Int?, value: Float?)
+    func reloadEntries()
 }
 
 class WalletPresenter {
     
     var apiManager: APIManager!
     var delegate: WalletPresenterDelegate?
+    
+    var entries = [[String: Any]]()
     
     class func defaultPresenter() -> WalletPresenter {
         return WalletPresenter(apiManager: APIManager.defaultManager)
@@ -27,6 +30,15 @@ class WalletPresenter {
     
     func delegateWillAppear() {
         self.apiManager.user(id: 1, delegate: self)
+        self.apiManager.entries(delegate: self)
+    }
+    
+    func entriesCount() -> Int {
+        return self.entries.count
+    }
+    
+    func entryByRow(_ row: Int) -> [String: Any] {
+        return self.entries[row]
     }
 }
 
@@ -44,6 +56,9 @@ extension WalletPresenter: APIManagerDelegate {
             }
             
             delegate?.showUserData(name: name, entries: entries, value: value)
+        } else {
+            self.entries = objects
+            self.delegate?.reloadEntries()
         }
     }
     

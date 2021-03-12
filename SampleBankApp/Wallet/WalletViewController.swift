@@ -180,6 +180,13 @@ class WalletViewController: UIViewController {
                            multiplier: 1,
                            constant: 16).isActive = true
         NSLayoutConstraint(item: label,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .height,
+                           multiplier: 1,
+                           constant: 17).isActive = true
+        NSLayoutConstraint(item: label,
                            attribute: .leading,
                            relatedBy: .equal,
                            toItem: view,
@@ -288,11 +295,11 @@ extension WalletViewController: UITableViewDelegate {
 
 extension WalletViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return self.presenter?.entriesCount() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return EntryTableViewCell.dequeueReusableCell(tableView: tableView)
+        return EntryTableViewCell.dequeueReusableCell(tableView: tableView, entry: self.presenter!.entryByRow(indexPath.row))
     }
 }
 
@@ -306,5 +313,9 @@ extension WalletViewController: WalletPresenterDelegate {
             let amount = String(format: "R$ %.02f", value!)
             self.infoLabel?.text = "\(entries!) pedidos, totalizando \(amount)"
         }
+    }
+    
+    func reloadEntries() {
+        self.entriesTableView?.reloadData()
     }
 }

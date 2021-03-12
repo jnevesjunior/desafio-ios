@@ -38,10 +38,36 @@ class EntryTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    static func dequeueReusableCell(tableView: UITableView) -> EntryTableViewCell {
+    static func dequeueReusableCell(tableView: UITableView, entry: [String: Any]) -> EntryTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! EntryTableViewCell
-
+        cell.setEntry(entry)
+        
         return cell
+    }
+    
+    func setEntry(_ entry: [String: Any]) {
+        if let amount = entry["amount"] as? String {
+            self.valueLabel?.text = String(format: "R$ %.02f", Float(amount) ?? 0)
+        }
+        
+        if let email = entry["email"] as? String {
+            self.emailLabel?.text = email
+        }
+        
+        if let status = entry["status"] as? Int {
+            self.statusLabel?.text = status == 0 ? "Pago" : "Cancelado"
+            self.statusLabel?.textColor = status == 0 ? .green : .red
+        }
+        
+        if let createdAt = entry["createdAt"] as? String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+
+            if let date = dateFormatter.date(from: createdAt) {
+                let components = Calendar.current.dateComponents([.day], from: date, to: Date())
+                self.dateLabel?.text = "\(components.day ?? 0) dias atras"
+            }
+        }
     }
 
     private func addIconImageView() {

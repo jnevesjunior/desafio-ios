@@ -36,7 +36,11 @@ class APIManager {
     }
     
     func entryDetail(delegate: APIManagerDelegate?) {
-        sendRequest(routerURLRequest: EntryDetail.get, delegate: delegate)
+        sendRequest(routerURLRequest: EntryDetailRouter.get, delegate: delegate)
+    }
+    
+    func entries(delegate: APIManagerDelegate?) {
+        sendRequest(routerURLRequest: EntriesRouter.get, delegate: delegate)
     }
 
     private func sendRequest(routerURLRequest: URLRequestConvertible,
