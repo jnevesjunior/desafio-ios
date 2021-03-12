@@ -13,6 +13,7 @@ import NVActivityIndicatorView
 
 class LoginViewController: UIViewController {
 
+    var logoImageView: UIImageView?
     var loginTextField: MDCOutlinedTextField?
     var passTextField: MDCOutlinedTextField?
     var errorLabel: UILabel?
@@ -74,6 +75,10 @@ class LoginViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        goToWallet()
+    }
 
     // MARK: - Actions
 
@@ -112,6 +117,7 @@ class LoginViewController: UIViewController {
                            attribute: .height,
                            multiplier: 1,
                            constant: 120).isActive = true
+        self.logoImageView = logoImageView
     }
 
     private func addLoginTextField() {
@@ -332,15 +338,6 @@ extension LoginViewController: LoginPresenterDelegate {
         } else {
             activityIndicatorView.stopAnimating()
         }
-    }
-
-    func showErrorMessage() {
-        let alert = UIAlertController(title: "Ops...",
-                                      message: "Ocorreu um erro no login, por favor tente novamente!",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
-        self.present(alert, animated: true, completion: nil)
     }
 
     func showLoginError(_ isError: Bool) {

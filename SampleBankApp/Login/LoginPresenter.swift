@@ -10,7 +10,6 @@ import Foundation
 
 protocol LoginPresenterDelegate {
     func showLoading(_ isLoading: Bool)
-    func showErrorMessage()
     func showLoginError(_ isError: Bool)
     func loginSuccess()
 }
@@ -78,6 +77,6 @@ extension LoginPresenter: APIManagerDelegate {
     
     func returnWithError() {
         delegate?.showLoading(false)
-        delegate?.showErrorMessage()
+        delegate?.showLoginError(true)
     }
 }
